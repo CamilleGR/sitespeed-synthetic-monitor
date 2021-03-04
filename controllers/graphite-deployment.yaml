@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: graphite-deployment
+  labels:
+    app: graphite
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: graphite
+  template:
+    metadata:
+      labels:
+        app: graphite
+    spec:
+      containers:
+      - name: graphite
+        image:  graphiteapp/graphite-statsd
+        ports:
+        - containerPort: 8080
+        - containerPort: 2003

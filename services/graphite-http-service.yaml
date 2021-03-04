@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: graphite-http
+  namespace: default
+  labels:
+    app: graphite
+spec:
+  externalTrafficPolicy: Local
+  ports:
+  - name: ihm
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: graphite
+  type: NodePort

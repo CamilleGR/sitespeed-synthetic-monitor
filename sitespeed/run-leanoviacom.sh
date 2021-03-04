@@ -1,0 +1,1 @@
+sitespeed.io -n 10 --headless --chrome.chromedriverPath ./chromedriver  --graphite.port $(minikube service graphite-api --url | grep -Eo  '([0-9]+)$') --graphite.host $(minikube ip)   --multi leanoviacom.js

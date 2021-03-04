@@ -1,2 +1,4 @@
 sitespeed/chromedriver
 sitespeed/sitespeed-result/
+sitespeed/node_modules/
+sitespeed/package-lock.json
