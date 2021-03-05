@@ -12,6 +12,6 @@ spec:
     port: 3000
     protocol: TCP
     targetPort: 3000
-  selector:    
+  selector:
     app: grafana
   type: NodePort

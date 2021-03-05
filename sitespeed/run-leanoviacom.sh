@@ -1,1 +1,1 @@
-sitespeed.io -n 10 --headless --chrome.chromedriverPath ./chromedriver  --graphite.port $(minikube service graphite-api --url | grep -Eo  '([0-9]+)$') --graphite.host $(minikube ip)   --multi leanoviacom.js
+sitespeed.io -n 1 --headless --browsertime.chrome.collectTracingEvents --chrome.chromedriverPath ./chromedriver  --graphite.httpPort $(minikube service graphite-http --url | grep -Eo  '([0-9]+)$') --graphite.port $(minikube service graphite-api --url | grep -Eo  '([0-9]+)$') --graphite.host $(minikube ip)   https://www.leanovia.com/fr/

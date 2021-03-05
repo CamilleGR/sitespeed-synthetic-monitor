@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: grafana-deployment
+  namespace: default
   labels:
     app: grafana
 spec:
@@ -19,3 +20,23 @@ spec:
         image: grafana/grafana
         ports:
         - containerPort: 3000
+        volumeMounts:
+         - mountPath: /var/lib/grafana
+           name: grafana-storage
+         - mountPath: /etc/grafana/provisioning/datasources
+           name: grafana-datasources
+           readOnly: false
+         - mountPath: /etc/grafana/provisioning/dashboards
+           name: grafana-dashboards
+           readOnly: false
+      volumes:
+        - name: grafana-storage
+          emptyDir: {}
+        - name: grafana-datasources
+          configMap:
+              defaultMode: 420
+              name: grafana-datasources
+        - name : grafana-dashboards
+          configMap:
+              defaultMode: 420
+              name: grafana-dashboards
