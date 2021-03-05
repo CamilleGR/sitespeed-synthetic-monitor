@@ -5,7 +5,7 @@ metadata:
   namespace: default
 data:
   home.json: |-
-      {
+    {
         "annotations": {
           "list": [
             {
@@ -22,9 +22,22 @@ data:
         "editable": true,
         "gnetId": null,
         "graphTooltip": 0,
-        "id": 1,
         "links": [],
         "panels": [
+          {
+            "collapsed": false,
+            "datasource": null,
+            "gridPos": {
+              "h": 1,
+              "w": 24,
+              "x": 0,
+              "y": 0
+            },
+            "id": 16,
+            "panels": [],
+            "title": "Leanovia.com",
+            "type": "row"
+          },
           {
             "aliasColors": {},
             "bars": false,
@@ -40,10 +53,10 @@ data:
             "fill": 0,
             "fillGradient": 0,
             "gridPos": {
-              "h": 8,
-              "w": 24,
+              "h": 12,
+              "w": 18,
               "x": 0,
-              "y": 0
+              "y": 1
             },
             "hiddenSeries": false,
             "id": 9,
@@ -120,12 +133,183 @@ data:
             }
           },
           {
+            "datasource": "graphite",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "continuous-RdYlGr"
+                },
+                "custom": {},
+                "mappings": [],
+                "max": 100,
+                "min": 0,
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 4,
+              "w": 6,
+              "x": 18,
+              "y": 1
+            },
+            "id": 13,
+            "options": {
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
+              },
+              "showThresholdLabels": false,
+              "showThresholdMarkers": true,
+              "text": {}
+            },
+            "pluginVersion": "7.4.3",
+            "targets": [
+              {
+                "queryType": "randomWalk",
+                "refId": "A",
+                "target": "sitespeed_io.default.pageSummary.www_leanovia_com._fr_.chrome.native.coach.advice.privacy.score"
+              }
+            ],
+            "title": "Privacy Score",
+            "type": "gauge"
+          },
+          {
+            "datasource": "graphite",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "continuous-RdYlGr"
+                },
+                "custom": {},
+                "mappings": [],
+                "max": 100,
+                "min": 0,
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 4,
+              "w": 6,
+              "x": 18,
+              "y": 5
+            },
+            "id": 14,
+            "options": {
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
+              },
+              "showThresholdLabels": false,
+              "showThresholdMarkers": true,
+              "text": {}
+            },
+            "pluginVersion": "7.4.3",
+            "targets": [
+              {
+                "queryType": "randomWalk",
+                "refId": "A",
+                "target": "sitespeed_io.default.pageSummary.www_leanovia_com._fr_.chrome.native.coach.advice.bestpractice.score"
+              }
+            ],
+            "title": "Best Practice Score",
+            "type": "gauge"
+          },
+          {
+            "datasource": "graphite",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "continuous-RdYlGr"
+                },
+                "custom": {},
+                "mappings": [],
+                "max": 100,
+                "min": 0,
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 4,
+              "w": 6,
+              "x": 18,
+              "y": 9
+            },
+            "id": 11,
+            "options": {
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
+              },
+              "showThresholdLabels": false,
+              "showThresholdMarkers": true,
+              "text": {}
+            },
+            "pluginVersion": "7.4.3",
+            "targets": [
+              {
+                "queryType": "randomWalk",
+                "refId": "A",
+                "target": "sitespeed_io.default.pageSummary.www_leanovia_com._fr_.chrome.native.coach.advice.performance.score"
+              }
+            ],
+            "title": "Performance Score",
+            "type": "gauge"
+          },
+          {
             "datasource": null,
             "gridPos": {
               "h": 1,
               "w": 24,
               "x": 0,
-              "y": 8
+              "y": 13
             },
             "id": 5,
             "title": "Graphite Health",
@@ -149,7 +333,7 @@ data:
               "h": 6,
               "w": 24,
               "x": 0,
-              "y": 9
+              "y": 14
             },
             "hiddenSeries": false,
             "id": 7,
@@ -181,7 +365,7 @@ data:
               {
                 "queryType": "randomWalk",
                 "refId": "A",
-                "target": "carbon.agents.graphite-deployment-5c8dbbd8c6-cwgwx-a.metricsReceived"
+                "target": "carbon.agents.*.metricsReceived"
               }
             ],
             "thresholds": [],
@@ -243,7 +427,7 @@ data:
               "h": 9,
               "w": 12,
               "x": 0,
-              "y": 15
+              "y": 20
             },
             "hiddenSeries": false,
             "id": 2,
@@ -275,7 +459,7 @@ data:
               {
                 "queryType": "randomWalk",
                 "refId": "A",
-                "target": "carbon.agents.graphite-deployment-5c8dbbd8c6-cwgwx-a.cpuUsage"
+                "target": "carbon.agents.*.cpuUsage"
               }
             ],
             "thresholds": [],
@@ -337,7 +521,7 @@ data:
               "h": 9,
               "w": 12,
               "x": 12,
-              "y": 15
+              "y": 20
             },
             "hiddenSeries": false,
             "id": 3,
@@ -369,7 +553,7 @@ data:
               {
                 "queryType": "randomWalk",
                 "refId": "A",
-                "target": "carbon.agents.graphite-deployment-5c8dbbd8c6-cwgwx-a.memUsage"
+                "target": "carbon.agents.*.memUsage"
               }
             ],
             "thresholds": [],
@@ -428,7 +612,8 @@ data:
         "timezone": "",
         "title": "Monitoring dashboard",
         "uid": "6lFq9GUMk",
-        "version": 2}
+        "version": 1
+        }
   dashboard.yaml: |-
     apiVersion: 1
 
