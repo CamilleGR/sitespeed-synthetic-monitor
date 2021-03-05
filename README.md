@@ -1,11 +1,19 @@
 # poc_sitespeed_ci
 
 
-This project aims to :
-* Deploy on kubernetes a Graphite/Grafana stack tu visualize metrics.
-* Start a performance scan with sitespeed.io and store datas in graphite.
+This is a demo project :
 
 
-It's a lil' bit dirty. It's a poc :)
+![grafana screenshot](img/screenshot-grafana.png)
 
-(Yes, I commited on master. I'm a bad person.)
+
+This project use kubernetes to deploy a grafana/graphite stack. The Graphite database will be alimented by sitespeed.io performance tests results to monitor the performances of a website.
+
+I use minikube as a kubernetes cluster.
+
+## Scripts
+
+* create-all.sh : create kubernetes configmaps,deployments and services for graphite and grafana.
+* rm-all.sh : remove all kubernetes objects.
+* update-all.sh : update all kubernetes objets.
+* sitespeed/run-leanoviacom.sh : start an infinite loop which will send datas to the graphite instance deployed on minikube.
