@@ -1,0 +1,20 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: sitespeed
+  namespace: default
+spec:
+  schedule: "*/2 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: sitespeed
+            image: sitespeedio/sitespeed.io
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
+            - /start.sh -n 1 --headless --browsertime.chrome.collectTracingEvents --chrome.collectNetLog -graphite.host graphite-api.default.scv --graphite.ip 2003 https://leanovia.com/fr/
+          restartPolicy: OnFailure
