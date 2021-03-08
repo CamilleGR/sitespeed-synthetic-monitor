@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sitespeed-leanovia
+spec:
+  template:
+    spec:
+      containers:
+      - name: sitespeed
+        image: sitespeedio/sitespeed.io
+        args: ["-n","1", "--headless","--browsertime.chrome.collectTracingEvents","--chrome.collectNetLog","--graphite.webHost","graphite-http.default.svc","--graphite.httpPort","8080","--graphite.port","2003","--graphite.host","graphite-api.default.svc","--graphite.perIteration","https://www.leanovia.com/fr/"]
+      restartPolicy: Never
+  backoffLimit: 1
