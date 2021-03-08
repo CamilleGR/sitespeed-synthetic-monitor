@@ -13,8 +13,5 @@ spec:
           - name: sitespeed
             image: sitespeedio/sitespeed.io
             imagePullPolicy: IfNotPresent
-            command:
-            - /bin/sh
-            - -c
-            - /start.sh -n 1 --headless --browsertime.chrome.collectTracingEvents --chrome.collectNetLog -graphite.host graphite-api.default.scv --graphite.ip 2003 https://leanovia.com/fr/
+            args: ["-n","1", "--headless","--browsertime.chrome.collectTracingEvents","--chrome.collectNetLog","--graphite.webHost","graphite-http.default.svc","--graphite.httpPort","8080","--graphite.port","2003","--graphite.host","graphite-api.default.svc","--graphite.perIteration","https://www.leanovia.com/fr/"]
           restartPolicy: OnFailure
