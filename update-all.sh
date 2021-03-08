@@ -1,4 +1,5 @@
 #! /bin/bash
-kubectl update -f configmap/
-kubectl update -f controllers/
-kubectl update -f services/
+kubectl apply -f configmap/
+kubectl apply -f controllers/
+kubectl apply -f services/
+kubectl apply -f cronJob/
