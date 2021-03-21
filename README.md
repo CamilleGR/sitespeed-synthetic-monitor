@@ -1,4 +1,4 @@
-# poc_sitespeed_ci
+# Sitespeed Synthetic Monitor
 
 
 This is a demo project :
